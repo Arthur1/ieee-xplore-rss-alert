@@ -99,6 +99,11 @@ function main() {
     oldPostIds = [];
   }
 
+  if (!newPosts.length) {
+    Logger.log('No new posts have been added');
+    return;
+  }
+
   const newPostIds = newPosts.map((post) => post.id);
   const postIds = [...oldPostIds, ...newPostIds];
   postIdsFile.setContent(JSON.stringify(postIds));
